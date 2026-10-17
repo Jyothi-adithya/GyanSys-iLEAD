@@ -1,0 +1,132 @@
+/* ===================================================
+   GLOBAL DESIGN SYSTEM — Jyothiradithya P. Story Site
+   =================================================== */
+
+:root {
+  --color-ink:        #0d1117;
+  --color-ink-soft:   #1a2228;
+  --color-ink-mid:    #2a3540;
+  --color-text-light: #e8e0d4;
+  --color-text-warm:  #c8bfb0;
+  --color-text-muted: #8a8070;
+
+  --color-cream:      #f7f3ee;
+  --color-cream-dark: #ede8e0;
+  --color-cream-mid:  #f0ebe4;
+
+  --color-green:      #3d6b4a;
+  --color-green-mid:  #4a7c59;
+  --color-green-light:#5a9468;
+  --color-green-pale: #e8f0ea;
+  --color-green-dim:  #2a4d35;
+
+  --color-accent:     #c5956a;
+  --color-accent-soft:#d4aa85;
+
+  --color-white:      #ffffff;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-ui:      'Space Grotesk', system-ui, sans-serif;
+
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:   0 8px 32px rgba(0,0,0,0.10);
+  --shadow-card: 0 4px 24px rgba(61,107,74,0.12);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 200ms;
+  --dur-base: 350ms;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+  background: var(--color-cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.4rem, 2.5vw, 2.2rem); }
+h4 { font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
+
+p  { font-size: clamp(0.95rem, 1.2vw, 1.08rem); line-height: 1.8; }
+a  { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { font-family: var(--font-ui); cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+
+:focus-visible { outline: 2px solid var(--color-green); outline-offset: 3px; border-radius: 3px; }
+
+/* ---- Utilities ---- */
+.container        { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); }
+.container--narrow{ max-width: 800px; }
+
+.section-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.section-label--light { color: var(--color-green-light); }
+
+.divider {
+  width: 48px; height: 2px;
+  background: var(--color-green);
+  border: none;
+  margin: 1.5rem 0;
+  border-radius: 2px;
+}
+.divider--light { background: var(--color-green-light); opacity: 0.5; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-green); border-radius: 3px; }
+
+/* ---- Selection ---- */
+::selection { background: var(--color-green); color: #fff; }
+
+/* ---- Keyframes ---- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}

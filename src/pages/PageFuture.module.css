@@ -1,0 +1,85 @@
+.page { min-height: 100vh; }
+
+/* ── Hero ── */
+.hero {
+  position: relative; min-height: 52vh;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-ink); overflow: hidden;
+}
+.heroBg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 65% at 60% 45%, rgba(42,77,53,0.32) 0%, transparent 70%),
+              linear-gradient(145deg, #0d1117 0%, #1a2e1a 55%, #0d1117 100%);
+}
+.heroInner  { position: relative; z-index: 1; padding: 8rem var(--space-md) 5rem; text-align: center; }
+.heroLabel  {
+  font-family: var(--font-ui); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-green-light);
+  display: block; margin-bottom: 1.1rem;
+}
+.heroTitle  {
+  font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500; color: var(--color-text-light); line-height: 1.07;
+}
+.heroAccent { color: var(--color-green-light); }
+
+/* ── Content ── */
+.content    { padding: var(--space-xl) 0; background: var(--color-cream); }
+.sectionH   {
+  font-family: var(--font-display); font-size: clamp(1.8rem,3vw,2.6rem);
+  font-weight: 500; color: var(--color-ink); margin-bottom: 0.4rem;
+}
+.leadP      { font-size: clamp(1rem,1.3vw,1.15rem); line-height: 1.85; }
+
+.layout     { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin: 2.8rem 0; }
+.textBlock  { display: flex; flex-direction: column; }
+.imageBlock { width: 100%; }
+
+/* ── Pillars ── */
+.pillarsGrid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.2rem; margin: 3.5rem 0;
+}
+.pillar {
+  background: var(--color-white); border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem; border: 1px solid rgba(61,107,74,0.1);
+  box-shadow: var(--shadow-sm); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+}
+.pillarIcon  { font-size: 2rem; }
+.pillarTitle {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 500;
+  color: var(--color-ink);
+}
+.pillarDesc  { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.72; }
+
+/* ── Closing line ── */
+.closingLine {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  background: var(--color-green-pale); border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem; margin-top: 1rem;
+}
+.closingMark {
+  font-family: var(--font-display); font-size: 4rem; color: var(--color-green);
+  line-height: 0.8; flex-shrink: 0; margin-top: 0.3rem;
+}
+.closingLine p {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(1.1rem,1.7vw,1.4rem); color: var(--color-green-dim); line-height: 1.55;
+}
+
+/* ── Nav footer ── */
+.navFooter  { padding: 2.5rem 0; background: var(--color-ink); border-top: 1px solid rgba(255,255,255,0.05); }
+.navRow     { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.navBack, .navNext {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-ui); font-size: 0.86rem; font-weight: 500;
+  color: var(--color-text-warm); padding: 0.7rem 1.4rem; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.1); transition: all var(--dur-fast);
+}
+.navBack:hover, .navNext:hover { color: var(--color-text-light); border-color: rgba(90,148,104,0.4); }
+
+@media (max-width: 760px) {
+  .layout       { grid-template-columns: 1fr; gap: 2rem; }
+  .pillarsGrid  { grid-template-columns: 1fr; }
+}
