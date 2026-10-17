@@ -20,7 +20,7 @@ export const IMAGES = {
 
   // Page 1 — Aikyam 2026
   aikyamTeam: '/images/aikyamTeam.jpg',   // /images/aikyam-team.jpg
-  aikyamEvent: '/images/aikyamphoto.jpg',   // /images/aikyam-event.jpg
+  aikyamEvent: undefined,   // /images/aikyam-event.jpg
   aikyamBehind: undefined,   // /images/aikyam-behind.jpg
 
   // Page 2 — Ambitions

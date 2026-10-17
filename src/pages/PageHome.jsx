@@ -98,12 +98,14 @@ export default function PageHome() {
           <div className={styles.heroBgGrad} />
         </div>
 
-        <div className={styles.heroContent}>
-          <motion.div className={styles.heroPortraitWrap}
-            initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}>
-            <ImagePlaceholder src={IMAGES.heroPortrait} alt="Jyothiradithya P." label="Your portrait photo here" aspectRatio="3/4" dark />
-          </motion.div>
+        <div className={`${styles.heroContent} ${!IMAGES.heroPortrait ? styles.heroContentCentered : ''}`}>
+          {IMAGES.heroPortrait && (
+            <motion.div className={styles.heroPortraitWrap}
+              initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}>
+              <ImagePlaceholder src={IMAGES.heroPortrait} alt="Jyothiradithya P." label="Your portrait photo here" aspectRatio="3/4" dark />
+            </motion.div>
+          )}
 
           <div className={styles.heroText}>
             <motion.span className={styles.heroChapter}
@@ -115,7 +117,11 @@ export default function PageHome() {
             <motion.h1 className={styles.heroName}
               initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-              Jyothiradithya<br /><span className={styles.heroAccent}>P.</span>
+              {IMAGES.heroPortrait ? (
+                <>Jyothiradithya<br /><span className={styles.heroAccent}>P.</span></>
+              ) : (
+                <>Jyothiradithya <span className={styles.heroAccent}>P.</span></>
+              )}
             </motion.h1>
 
             <motion.p className={styles.heroTagline}
@@ -362,22 +368,31 @@ export default function PageHome() {
 
             {Boolean(IMAGES.aikyamTeam || IMAGES.aikyamEvent || IMAGES.aikyamBehind) && (
               <Reveal delay={0.12}>
-                <div className={`${styles.aikyamImgGrid} ${!IMAGES.aikyamBehind ? styles.aikyamImgGridTwo : ''}`}>
-                  {IMAGES.aikyamTeam && (
-                    <ImagePlaceholder src={IMAGES.aikyamTeam} alt="Aikyam 2026 team" label="Aikyam 2026 team photo" aspectRatio={IMAGES.aikyamBehind ? "16/9" : "16/10"} dark />
-                  )}
-                  {IMAGES.aikyamEvent && !IMAGES.aikyamBehind && (
-                    <ImagePlaceholder src={IMAGES.aikyamEvent} alt="Aikyam 2026 event moments" label="Aikyam 2026 event moments" aspectRatio="16/10" dark />
-                  )}
-                  {IMAGES.aikyamBehind && (
-                    <div className={styles.aikyamImgPair}>
-                      {IMAGES.aikyamEvent && (
-                        <ImagePlaceholder src={IMAGES.aikyamEvent} alt="Aikyam 2026 event moments" label="Aikyam 2026 event moments" aspectRatio="1/1" dark />
-                      )}
-                      <ImagePlaceholder src={IMAGES.aikyamBehind} alt="Aikyam behind the scenes" label="Aikyam — behind the scenes" aspectRatio="1/1" dark />
+                {!IMAGES.aikyamEvent && !IMAGES.aikyamBehind && IMAGES.aikyamTeam ? (
+                  <div className={styles.aikyamSinglePhotoWrap}>
+                    <div className={styles.aikyamSinglePhoto}>
+                      <ImagePlaceholder src={IMAGES.aikyamTeam} alt="Aikyam 2026 organizing team" label="Aikyam 2026 team" aspectRatio="16/9" dark />
                     </div>
-                  )}
-                </div>
+                    <p className={styles.aikyamCaption}>The Aikyam 2026 organising team on-ground at RVITM</p>
+                  </div>
+                ) : (
+                  <div className={`${styles.aikyamImgGrid} ${!IMAGES.aikyamBehind ? styles.aikyamImgGridTwo : ''}`}>
+                    {IMAGES.aikyamTeam && (
+                      <ImagePlaceholder src={IMAGES.aikyamTeam} alt="Aikyam 2026 team" label="Aikyam 2026 team photo" aspectRatio={IMAGES.aikyamBehind ? "16/9" : "16/10"} dark />
+                    )}
+                    {IMAGES.aikyamEvent && !IMAGES.aikyamBehind && (
+                      <ImagePlaceholder src={IMAGES.aikyamEvent} alt="Aikyam 2026 event moments" label="Aikyam 2026 event moments" aspectRatio="16/10" dark />
+                    )}
+                    {IMAGES.aikyamBehind && (
+                      <div className={styles.aikyamImgPair}>
+                        {IMAGES.aikyamEvent && (
+                          <ImagePlaceholder src={IMAGES.aikyamEvent} alt="Aikyam 2026 event moments" label="Aikyam 2026 event moments" aspectRatio="1/1" dark />
+                        )}
+                        <ImagePlaceholder src={IMAGES.aikyamBehind} alt="Aikyam behind the scenes" label="Aikyam — behind the scenes" aspectRatio="1/1" dark />
+                      </div>
+                    )}
+                  </div>
+                )}
               </Reveal>
             )}
           </div>

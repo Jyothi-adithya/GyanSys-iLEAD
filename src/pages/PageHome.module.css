@@ -12,8 +12,8 @@
 .heroBgGrad {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 28% 42%, rgba(42,77,53,0.38) 0%, transparent 68%),
-    linear-gradient(155deg, #0d1117 0%, #1a2e1a 50%, #0d1117 100%);
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(42,77,53,0.42) 0%, transparent 70%),
+    linear-gradient(155deg, #0d1117 0%, #152418 50%, #0d1117 100%);
 }
 .heroContent {
   position: relative; z-index: 1;
@@ -21,6 +21,69 @@
   gap: 4.5rem; align-items: center;
   max-width: 1100px; width: 100%;
   padding: 7rem var(--space-md) 5rem; margin: 0 auto;
+}
+.heroContentCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 820px;
+  width: 100%;
+  padding: 8.5rem var(--space-md) 6rem;
+  margin: 0 auto;
+}
+.heroContentCentered .heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.35rem;
+}
+.heroContentCentered .heroChapter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(90, 148, 104, 0.14);
+  border: 1px solid rgba(90, 148, 104, 0.32);
+  padding: 0.42rem 1.15rem;
+  border-radius: 100px;
+  color: var(--color-green-light);
+  font-family: var(--font-ui);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+.heroContentCentered .heroName {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 6.5vw, 5.6rem);
+  font-weight: 500;
+  color: var(--color-text-light);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.heroContentCentered .heroTagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  color: var(--color-text-warm);
+  font-weight: 300;
+  line-height: 1.45;
+  max-width: 660px;
+}
+.heroContentCentered .heroSub {
+  font-size: 1.05rem;
+  color: rgba(200, 191, 176, 0.85);
+  line-height: 1.85;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.heroContentCentered .heroActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
 .heroPortraitWrap {
   width: 100%; max-width: 280px; justify-self: center;
@@ -291,6 +354,31 @@
 .aikyamImgGrid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 0.85rem; margin-top: 1rem; }
 .aikyamImgGridTwo { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 1rem; }
 .aikyamImgPair { display: grid; grid-template-rows: 1fr 1fr; gap: 0.85rem; }
+
+/* ── Aikyam single photo ── */
+.aikyamSinglePhotoWrap {
+  max-width: 860px;
+  margin: 2.2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aikyamSinglePhoto {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.aikyamCaption {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  margin-top: 0.9rem;
+  text-align: center;
+  font-style: italic;
+}
 
 /* ── Mindset ── */
 .gitaNote {
